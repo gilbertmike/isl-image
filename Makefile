@@ -20,9 +20,7 @@ push-amd64:
 	@echo "Pushing ${NAME}:${ALTTAG}-amd64"
 	#Push Amd64 version
 	"${DOCKER_EXE}" push ${NAME}:${ALTTAG}-amd64
-	#Combine Amd64 version into multi-architecture docker image.
 	"${DOCKER_EXE}" manifest create \
 		${NAME}:${ALTTAG} \
-		--amend ${NAME}:${ALTTAG}-amd64 \
-	  --amend ${NAME}:${ALTTAG}-arm64
+		--amend ${NAME}:${ALTTAG}-amd64
 	"${DOCKER_EXE}" manifest push ${NAME}:${ALTTAG}

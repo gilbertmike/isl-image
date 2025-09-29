@@ -60,3 +60,5 @@ RUN wget -O islpy-2024.2.tar.gz https://github.com/inducer/islpy/archive/refs/ta
     && cd islpy-2024.2 \
     && ./configure.py --no-use-shipped-isl --no-use-shipped-imath --isl-inc-dir=/usr/local/include --isl-lib-dir=/usr/local/lib --use-barvinok \
     && pip3 install .
+
+ENV LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
